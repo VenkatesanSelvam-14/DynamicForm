@@ -23,7 +23,7 @@ const Radio = ({ input, handleRadioChange }) => {
           </label>
         </div>
       ))}
-<span class="error" id="TextnameError"></span><br/>
+<span className="error" id="TextnameError"></span><br/>
     </div>
   )
 }
