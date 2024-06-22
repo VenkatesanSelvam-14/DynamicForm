@@ -1,21 +1,22 @@
 import React from 'react'
 
 const Password = ({ input, handleChange }) => {
-    const { type, id, name, value, required, placeholder, minLength, size, maxLength } = input
+    const { type, id, name, value, required, placeholder, minLength, size, maxLength,className } = input
     return (
-        <div>
+        <div className='form-row'>
             <label htmlFor={name}>{name ? name : "Text"}</label>
             <input
                 type={type}
-                id={id ? id : type}
+                id={id ? id : name}
                 name={name ? name : type}
                 placeholder={placeholder ? placeholder : type}
                 value={value ? value : null}
-                minLength={minLength ? minLength : null}
+                minLength={minLength ? minLength : 8}
                 size={size ? size : 30}
                 maxLength={maxLength ? maxLength : null}
+                className={className?className:type}
                 onChange={handleChange}
-                required={required}
+                required={required?required:true}
 
             />
         </div>

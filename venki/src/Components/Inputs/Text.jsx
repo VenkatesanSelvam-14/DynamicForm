@@ -1,26 +1,51 @@
-import React from 'react'
+import React,{useState} from 'react'
+
 
 const Text = ({input,handleChange}) => {
-    const {type,id,name,placeholder,values,size,maxLength,minLength,required}=input;
-   
+    const {type,id,name,placeholder,value,size,maxLength,minLength,required,className,pattern,style}=input;
+    const [error, setError] = useState('');
+
+    const handleValidation = (e) => {
+        const { value } = e.target;
+        let errorMsg = '';
+
+        if (required && !value) {
+            errorMsg = 'This field is required';
+        } 
+        else if (minLength && value.length < minLength) {
+            errorMsg = `Minimum length is ${minLength}`;
+        } else if (maxLength && value.length > maxLength) {
+            errorMsg = `Maximum length is ${maxLength}`;
+        } else if (pattern && !new RegExp(pattern).test(value)) {
+            errorMsg = 'Invalid format';
+        }
+
+        setError(errorMsg);
+        handleChange(e); // Call the original handleChange
+    };
+
 
   return (
-    <div>
+    <div className='form-row'>
         <label htmlFor={name}>{name ? name :"Text"}</label>
                             <input
                                 type={type}
-                                id={id?id:type}
+                                id={id?id:name}
                                 name={name?name:type}
                                 placeholder={placeholder?placeholder:type}
-                                value={values?values:null}
-                                minLength={minLength ? minLength : null}
+                                value={value?value:null}
+                                className={className?className:type}
+                                minLength={minLength ? minLength : undefined}
                                 size={size?size:30}
-                                maxLength={maxLength ? maxLength : null}
-                                onChange={handleChange}
+                                maxLength={maxLength ? maxLength : undefined}
+                                pattern={pattern?pattern:undefined}
+                                onChange={handleValidation}
                                 required={required?required:true}
                                 
                             />
-                            <span className="error" id="TextnameError"></span><br/>
+                            {/* <span className="error" id="TextnameError"></span><br/> */}
+                            {error && <span className="error" id={`${name}Error`}>{error}</span>}
+                            <br />
     </div>
   )
 }

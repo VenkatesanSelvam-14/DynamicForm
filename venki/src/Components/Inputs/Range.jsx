@@ -1,16 +1,17 @@
 import React from 'react'
 
 const Range = ({input, handleChange}) => {
-  const {type, id, name, min, max,required}=input
+  const {type, id, name, min, max,required,className}=input
   return (
-    <div>
+    <div className='form-row'>
       <label htmlFor={name}>{name ? name :"Range"}</label>
                             <input
                                 type={type}
-                                id={id?id:type}
+                                id={id?id:name}
                                 name={name?name:type}
                                 min={min?min:0}
                                 max={max?max:100}
+                                className={className?className:type}
                                 onChange={handleChange}
                                 required={required?required:true}
                                 

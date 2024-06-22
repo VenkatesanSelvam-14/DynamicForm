@@ -39,6 +39,33 @@ code {
   background-color: #f8f9fa;
 }
 
+.form-row {
+  display: flex;
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px; /* Optional margin between rows */
+}
+
+.form-row label {
+  flex: 1; /* Expand to fill available space */
+  margin-right: 10px; /* Optional spacing between label and input */
+}
+
+.form-row input {
+  flex: 2; /* Expand more than label */
+  padding: 5px; /* Optional padding for input */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+.form-row select {
+  flex: 2; /* Expand more than label */
+  padding: 5px; /* Optional padding for input */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+
+.form-row .error {
+  margin-left: 10px; /* Optional spacing for error message */
+}
+
 .welcome {
   display: flex;
   justify-content: center;
@@ -94,8 +121,8 @@ input {
   align-items: center;
   margin-bottom: 10px;
   border: 2px solid black;
-  padding:10px;
-  margin:10px;
+  padding: 10px;
+  margin: 10px;
   box-sizing: border-box;
   margin: auto;
   width: 75vw;
@@ -117,7 +144,7 @@ input {
   margin-left: 10px;
 }
 
-.Page{
+.Page {
   display: flex;
   justify-content: space-evenly;
 }
@@ -158,7 +185,7 @@ input {
 .navbar-nav {
   display: flex;
   list-style-type: none;
-  justify-content:space-between ;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
 }
@@ -172,24 +199,24 @@ input {
   color: #333;
   padding: 8px 12px;
   display: block;
-} 
+}
 
 
 
 
-.fileChoice{
+.fileChoice {
   display: flex;
   justify-content: space-around;
 }
 
 
-form{
-  border:2ps solid black;
-  padding:15px;
+form {
+  border: 2ps solid black;
+  padding: 15px;
   box-sizing: border-box;
-} */
+}
 
-.multipleChoice{
+*/ .multipleChoice {
   display: flex;
   justify-content: space-between;
 }
@@ -200,20 +227,9 @@ form{
 
 
 
- /* .nav-link:hover {
-  background-color: #e9ecef;
-  color: #007bff;
-}
- 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 1rem;
-} */
 
- .form-field {
+
+.form-field {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -222,7 +238,7 @@ form{
   border-radius: 5px;
   background-color: #f9f9f9;
   width: 50%;
-  height:35%
+  height: 35%
 }
 
 
@@ -329,350 +345,39 @@ form{
 
 .form-field .dropdown-label {
   margin-top: 10px;
-} 
-
-
-
-/* .form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 20px;
-  border: 1px solid #e0e0e0;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-field input[type="text"],
-.form-field input[type="number"],
-.form-field input[type="date"],
-.form-field input[type="email"],
-.form-field input[type="password"],
-.form-field input[type="url"],
-.form-field input[type="tel"],
-.form-field input[type="file"],
-.form-field input[type="checkbox"],
-.form-field input[type="radio"],
-.form-field select {
-  width: 100%;
-  padding: 8px;
-  margin: 3px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.form-field input[type="checkbox"] {
-  width: auto;
-  margin-right: 10px;
-}
-
-.form-field label {
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #333;
-}
-
-.form-field .multipleChoice {
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-field .multipleChoice div {
-  display: flex;
-  align-items: center;
-}
-
-.form-field .multipleChoice input[type="text"] {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.form-field .multipleChoice button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.form-field .multipleChoice button:hover {
-  background-color: #0056b3;
-}
-
-.form-field .fileChoice {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.form-field .fileChoice div {
-  flex: 1 1 calc(50% - 10px);
-  display: flex;
-  align-items: center;
-}
-
-.form-field .fileChoice input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-.form-field .fileChoice label {
-  margin: 0;
-}
-
-.form-field .fileChoice select {
-  margin-top: 10px;
-}
-
-.form-field button[type="button"] {
-  padding: 8px 12px;
-  background-color: #28a745;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.form-field button[type="button"]:hover {
-  background-color: #218838;
-}
-
-.form-field button[type="button"].remove {
-  background-color: #dc3545;
-}
-
-.form-field button[type="button"].remove:hover {
-  background-color: #c82333;
-}
-
-.form-field .dropdown-label {
-  margin-top: 10px;
-  font-weight: 600;
-} */
 
 
 
-
-/* body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f0; 
-} */
-
-/* .Create {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.Create h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-.Create label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #555;
-}
-
-.Create input[type="text"],
-.Create select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.Create select {
-  cursor: pointer;
-}
-
-.Create form {
-  margin-top: 20px;
-}
-
-.Create form .form-field {
-  margin-bottom: 20px;
-}
-
-.Create form button[type="submit"] {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  background-color: #28a745;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.Create form button[type="submit"]:hover {
-  background-color: #218838;
-}
-
-/* FormField Component Styling */
-/* .form-field {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  border: 1px solid #e0e0e0;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #fafafa;
-}
-
-.form-field input[type="text"],
-.form-field input[type="number"],
-.form-field input[type="date"],
-.form-field input[type="email"],
-.form-field input[type="password"],
-.form-field input[type="url"],
-.form-field input[type="tel"],
-.form-field input[type="file"],
-.form-field select {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.form-field input[type="checkbox"],
-.form-field input[type="radio"] {
-  margin-right: 10px;
-}
-
-.form-field label {
-  margin: 5px 0;
-  font-weight: 600;
-}
-
-.form-field .multipleChoice {
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.form-field .multipleChoice div {
-  display: flex;
-  align-items: center;
-}
-
-.form-field .multipleChoice input[type="text"] {
-  flex: 1;
-  margin-right: 10px;
-}
-
-.form-field .multipleChoice button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.form-field .multipleChoice button:hover {
-  background-color: #0056b3;
-}
-
-.form-field .fileChoice {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.form-field .fileChoice div {
-  flex: 1 1 calc(50% - 10px);
-  display: flex;
-  align-items: center;
-}
-
-.form-field .fileChoice input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-.form-field .fileChoice label {
-  margin: 0;
-}
-
-.form-field .fileChoice select {
-  margin-top: 10px;
-}
-
-.form-field button[type="button"] {
-  padding: 8px 12px;
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.form-field button[type="button"]:hover {
-  background-color: #c82333;
-}
-
-.form-field .dropdown-label {
-  margin-top: 10px;
-  font-weight: 600;
-} */ 
-
-
-.Create{
+.Create {
   position: relative;
 }
 
-.FormName{
+.FormName {
   display: flex;
   justify-content: center;
   font-size: larger;
   font-weight: 700;
-  font-style:oblique;
+  font-style: oblique;
 }
 
-.AddFieldMenu{
+.AddFieldMenu {
   position: fixed;
-  
+
   margin-left: 75%;
   font-size: medium;
   font-weight: 700;
-  font-style:oblique;
+  font-style: oblique;
 }
 
-/* button{
-  position: relative;
-  background-color: #c82333;
-  color: #f8f9fa;
-  width:70px;
-  height:40px;
-  border-radius: 10%;
-} */
+
+h3 {
+
+  display: flex;
+  justify-content: center;
+
+}
 
 
 
@@ -686,16 +391,13 @@ form{
 
 
 
-
-/* Container styling */
 .container {
-  max-width: 800px; /* Adjust width as needed */
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
 
-/* Header styling */
 
 
 
@@ -708,4 +410,36 @@ form{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Optional: Adjust spacing, colors, and other styles as needed */
+
+
+
+.AddFieldSubmit {
+  position: fixed;
+  margin-left: 80%;
+  margin-top: 5%;
+}
+
+.ulList {
+  list-style: none;
+}
+
+.RemoveList {
+  display: flex;
+  justify-content: center;
+}
+
+
+.innerList {
+
+  border: 2px solid whitesmoke;
+  padding: 20px;
+  margin: 15px;
+  width: 250px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  ;
+}
+
+/* .fileChoice{
+  display: flex;
+} */

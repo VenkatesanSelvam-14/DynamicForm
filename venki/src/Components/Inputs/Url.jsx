@@ -2,9 +2,9 @@ import React from 'react'
 
 const Url = ({input,handleChange}) => {
   //<input type="url" id="website" name="website" placeholder="https://example.com" pattern="https://.*" title="Please enter a valid URL starting with https://" required>
-const {type,id,name,placeholder,pattern,title,required,value,size}=input
+const {type,id,name,placeholder,pattern,title,required,value,size,className}=input
   return (
-    <div>
+    <div className='form-row'>
       <label htmlFor={name}>{name ? name :"Url"}</label>
                             <input
                                 type={type}
@@ -14,6 +14,7 @@ const {type,id,name,placeholder,pattern,title,required,value,size}=input
                                 value={value?value:null}
                                 pattern={pattern?pattern:"https://.*"}
                                 size={size?size:30}
+                                className={className?className:type}
                                 onChange={handleChange}
                                 required={required?required:true}
                                 

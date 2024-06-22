@@ -1,18 +1,19 @@
 import React from 'react'
 
 const Time = ({input ,handleChange}) => {
-  const{type,id,name,value,min,max,step,required}=input
+  const{type,id,name,value,min,max,step,required,className}=input
   return (
-    <div>
+    <div className='form-row'>
       <label htmlFor={name}>{name ? name :"Time"}</label>
                             <input
                                 type={type}
-                                id={id?id:type}
+                                id={id?id:name}
                                 name={name?name:type}
                                 value={value?value:null}
                                 min={min?min:'09:00'}
                                 max={max?max:"18:00"}
                                 step={step?step:900}
+                                className={className?className:type}
                                 onChange={handleChange}
                                 required={required?required:true}
                                 

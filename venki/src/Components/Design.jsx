@@ -16,15 +16,26 @@ import Image from './Inputs/Image';
 import Month from './Inputs/Month';
 import Week from './Inputs/Week';
 import Range from './Inputs/Range';
+import TextArea from './Inputs/TextArea';
 
 
 const Design = ({ form }) => {
 
     const [values, setValues] = useState({});
     const [check, setCheck] = useState([]);
+    const [dropCheck,setDropCheck]= useState([])
+    const [keys,setKeys]=useState([])
+    
     const handleSubmit = (e) => {
         e.preventDefault()
+        const userConfirmed = window.confirm("Are you sure you want to submit ?");
+    if (!userConfirmed) {
+        
+        return;
+    }
         console.log("Data submitted: ", values);
+
+        alert(" Data's Submitted");
     };
 
     const handleChange = (e) => {
@@ -36,12 +47,72 @@ const Design = ({ form }) => {
     const handleChangeDropDwon = (e) => {
         const { name, value } = e.target;
         console.log(name);
-        console.log(value);
-        setValues((prev) => ({ ...prev, [name]: value }));
+        
+        if(value!=='Select')
+            {
+                console.log(value);
+                setValues((prev) => ({ ...prev, [name]: value }));
+            }
+        
+
+    };
+
+    const handleMultipleChangeDropDwon = (e,arr) => {
+        const { name, value, checked } = e.target;
+        // let tempCheck = { ...dropCheck }; 
+    
+       
+        // if (!tempCheck[name]) {
+        //     tempCheck[name] = [];
+        // }
+    
+        
+        // if (checked && !tempCheck[name].includes(value)) {
+        //     tempCheck[name].push(value);
+        // } else {
+            
+        //     tempCheck[name] = tempCheck[name].filter(item => item !== value);
+        // }
+    
+        
+        // setDropCheck(tempCheck);
+    
+        
+        setValues(prevState => ({
+            ...prevState,
+            [name]: arr
+        }));
 
     };
 
     const handleCheckboxChange = (e) => {
+        const { name, value, checked } = e.target;
+        let tempCheck = { ...check }; // Assuming check is an object for different keys
+    
+        // Initialize an array if it doesn't exist for the current name
+        if (!tempCheck[name]) {
+            tempCheck[name] = [];
+        }
+    
+        // If the checkbox is checked, add the value to the corresponding array
+        if (checked && !tempCheck[name].includes(value)) {
+            tempCheck[name].push(value);
+        } else {
+            // If the checkbox is unchecked, remove the value from the corresponding array
+            tempCheck[name] = tempCheck[name].filter(item => item !== value);
+        }
+    
+        // Update check state with the modified object
+        setCheck(tempCheck);
+    
+        // Update values state to reflect the current state of checkboxes
+        setValues(prevState => ({
+            ...prevState,
+            [name]: tempCheck[name]
+        }));
+    };
+    
+    const handleCheckboxChang = (e) => {
         const { name, value } = e.target;
         let temp = [...check]
 
@@ -93,18 +164,28 @@ const Design = ({ form }) => {
         }));
     }
 
+//     if(form){
+//         const kkk=Object.keys(form)
+        
+//      kkk.sort((a,b)=>parseInt(form[a].positionNo) - parseInt(form[b].positionNo))
+// setKeys(kkk)
+//     }
+
     return (
-        <div>
+        <div >
 
             <form onSubmit={(e) => handleSubmit(e)}>
-                {form && Object.keys(form).map((field) => {
-                    const { type } = form[field]
-
+                {form && Object.keys(form).sort((a, b) => parseInt(form[a].positionNo, 10) - parseInt(form[b].positionNo, 10)).map((field,index) => {
+                  const { type, positionNo } = form[field];
+      
+                  
                     return (
 
-                        <div key={field}>
+                        <div key={field} className='User-Form'>
                             {type === 'text' && (
                                 <Text input={form[field]} handleChange={handleChange} />)}
+                            {type === 'textarea' && (
+                                <TextArea input={form[field]} handleChange={handleChange} />)}
                             {type === 'email' && (
                                 <Email input={form[field]} handleChange={handleChange} />)}
                             {type === 'tel' && (
@@ -114,7 +195,7 @@ const Design = ({ form }) => {
                             {type === 'radio' && (
                                 <Radio input={form[field]} handleRadioChange={handleRadioChange} />)}
                             {type === 'dropdown' && (
-                                <DropDown input={form[field]} handleChangeDropDwon={handleChangeDropDwon} />)}
+                                <DropDown input={form[field]} handleChangeDropDwon={handleChangeDropDwon} handleMultipleChangeDropDwon={handleMultipleChangeDropDwon}/>)}
                             {(type === 'date' || type === 'datetime-local') && (
                                 <Date input={form[field]} handleDate={handleDate} />)}
                             {type === 'password' && (
@@ -148,7 +229,14 @@ const Design = ({ form }) => {
 
                         </div>
                     );
-                })}
+                  })
+                   
+                        
+                           
+                        
+
+                    
+                }
                 <button type="submit">Submit</button>
             </form>
         </div>

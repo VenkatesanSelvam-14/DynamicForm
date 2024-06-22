@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Week = ({input,handleChange}) => {
-  const{type,id,name,value,min,max,required}=input
+  const{type,id,name,value,min,max,required,className}=input
   return (
-    <div>
+    <div className='form-row'>
           <label htmlFor={name}>{name ? name :"Week"}</label>
                             <input
                                 type={type}
@@ -12,6 +12,7 @@ const Week = ({input,handleChange}) => {
                                 value={value?value:null}
                                 min={min?min:'2024-w01'}
                                 max={max?max:'2024-w52'}
+                                className={className?className:type}
                                 onChange={handleChange}
                                 required={required?required:true}
                                 

@@ -1,21 +1,22 @@
 import React from 'react'
 
 const Radio = ({ input, handleRadioChange }) => {
-  const { type, id,name, options, required } = input;
+  const { type, id,name, options, required,className } = input;
 
   //key={item.id}  id={id?id:"Gender"}  name={name ? name : "Gender"}  value={item.values= ? item.values : null}  {item.label}
   return ( 
-    <div>
+    <div className='form-row'>
     
       <p>{name + " :"}</p>
       {options.map((item,index) => (
-        <div key={item}>
+        <div key={item} className='Multiple-Choice'>
           <label>
             <input
               type={type}
-              id={id?id:type}
+              id={id?id:name}
               name={name ? name : type}
               value={item ? item: null}
+              className={className?className:type}
               onChange={(e) => handleRadioChange(e)}
               required={required?required:true}
             />

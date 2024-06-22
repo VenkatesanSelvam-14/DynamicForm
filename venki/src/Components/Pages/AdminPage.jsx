@@ -1,12 +1,14 @@
 import React ,{useState}from 'react'
 // import FormCreation from '../CreateForm Components/FormCreation'
-
+import { useNavigate }  from 'react-router-dom'
 import AdminCreate from '../CreateForm Components/AdminCreate'
 import DeleteForm from '../CreateForm Components/DeleteForm'
 import UpdateForm from '../CreateForm Components/UpdateForm'
+import {Link} from 'react-router-dom'
 
 const AdminPage = () => {
     const [createOrUpdateOrDelete,setCreateOrUpdate]=useState(null)
+    const navigate=useNavigate()
   return (
     <div>
       <h1 className='welcome'>Welcome Admin</h1>
@@ -38,6 +40,16 @@ const AdminPage = () => {
             onClick={() => setCreateOrUpdate('Delete')}
           >
             Form Delete
+          </a>
+        </li>
+        <li className="nav-item">
+          <a 
+           
+            className="nav-link"
+          
+            onClick={() => navigate('/')}
+          >
+            User Page
           </a>
         </li>
       </ul>

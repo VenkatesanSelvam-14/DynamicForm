@@ -1,22 +1,23 @@
 import React from 'react'
 
 const ContactNum = ({ input, handleChange }) => {
-    const { type, id, name, placeholder, values, pattern, minLength, maxLength, size, required } = input;
+    const { type, id, name, placeholder, value, pattern, minLength, maxLength, size, required, className, style } = input;
     return (
-        <div>
+        <div className='form-row'>
             <label htmlFor={name}>{name ? name : "Contact Number"}</label>
             <input
                 type={type}
-                id={id ? id : "Contact Number"}
+                id={id ? id : name}
                 name={name ? name : "Contact Number"}
                 placeholder={placeholder ? placeholder : name === "Mobile Number" ? "9876543210" : "123-456-7890"}
-                value={values ? values : null}
+                value={value ? value : null}
                 pattern={pattern ? pattern : name === "Mobile Number" ? "[789][0-9]{9}" : "[0-9]{3}-[0-9]{3}-[0-9]{4}"}
                 size={size ? size : 30}
                 minLength={minLength ? minLength : 10}
                 maxLength={maxLength ? maxLength : name === "Mobile Number" ? 10 : 12}
+                className={className ? className : type}
                 onChange={handleChange}
-                required={required}
+                required={required ? required : true}
 
             />
         </div>

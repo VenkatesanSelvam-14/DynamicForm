@@ -1,17 +1,18 @@
 import React from 'react'
 
 const File = ({input,handleChange}) => {
-  const {type,id,name,placeholder,value,size,maxsize,accept,required}=input;
+  const {type,id,name,placeholder,value,size,maxsize,accepts,required,className}=input;
   return (
-    <div>
+    <div className='form-row'>
       <label htmlFor={name}>{name ? name :"File"}</label>
                             <input
                                 type={type}
-                                id={id?id:type}
+                                id={id?id:name}
                                 name={name?name:type}
                                 placeholder={placeholder?placeholder:type}
                                 value={value?value:null}
-                                accept={accept?accept:"application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*"}
+                                className={className?className:type}
+                                accept={accepts?accepts:"application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*"}
                                 size={size?size:30}
                                 maxsize={maxsize ? maxsize : 10}
                                 onChange={handleChange}

@@ -65,7 +65,7 @@ console.log(menu);
       </div>
     </nav>
       <div>
-      {selectedForm && <Form formName={selectedForm} />}
+      {selectedForm && <Form formName={selectedForm} /> }
       </div>
       
     </div>

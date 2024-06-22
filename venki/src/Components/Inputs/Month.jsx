@@ -1,15 +1,16 @@
 import React from 'react'
 
 const Month = ({input,handleChange}) => {
-  const{type,id,name,value,min,max,required}=input
+  const{type,id,name,value,min,max,required,className}=input
   return (
-    <div>
+    <div className='form-row'>
       <label htmlFor={name}>{name ? name :"Month"}</label>
                             <input
                                 type={type}
-                                id={id?id:type}
+                                id={id?id:name}
                                 name={name?name:type}
                                 value={value?value:null}
+                                className={className?className:type}
                                 min={min?min:'1900-01'}
                                 max={max?max:'2024-12'}
                                 onChange={handleChange}

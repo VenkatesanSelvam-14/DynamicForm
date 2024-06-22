@@ -1,9 +1,9 @@
 import React from 'react'
 
 const Date = ({ input, handleDate }) => {
-    const { type, name, value, id, required, size, placeholder,min,max,step } = input
+    const { type, name, value, id, required, size, placeholder, min, max, step, ClassName } = input
     return (
-        <div>
+        <div className='form-row'>
             <label htmlFor={name} key={id ? id : name}>{name ? name : "DATE"}</label>
             <input
                 type={type}
@@ -11,12 +11,13 @@ const Date = ({ input, handleDate }) => {
                 name={name ? name : "Date"}
                 placeholder={placeholder ? placeholder : "Date"}
                 value={value ? value : null}
+                ClassName={ClassName ? ClassName : type}
                 size={size ? size : 30}
-                min={min?min:null}
-                max={max?max:null}
-                step={step?step:null}
+                min={min ? min : null}
+                max={max ? max : null}
+                step={step ? step : null}
                 onChange={(e) => { handleDate(e) }}
-                required={required}
+                required={required ? required : true}
 
             />
 

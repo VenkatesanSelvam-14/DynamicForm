@@ -1,19 +1,21 @@
 import React from 'react'
 
 const Email = ({ input, handleChange }) => {
-    const { type, id, name, placeholder, values, size, required } = input;
+    const { type, id, name, placeholder, value, size, required,pattern ,className} = input;
     return (
-        <div>
+        <div className='form-row'>
             <label htmlFor={name}>{name ? name : "Email"}</label>
             <input
                 type={type}
-                id={id ? id : type}
+                id={id ? id : name}
                 name={name ? name : type}
                 placeholder={placeholder ? placeholder : type}
-                value={values ? values : null}
+                pattern={pattern?pattern:undefined}
+                value={value ? value : null}
+                className={className?className:type}
                 size={size ? size : 30}
                 onChange={handleChange}
-                required={required}
+                required={required?required:true}
 
             />
         </div>

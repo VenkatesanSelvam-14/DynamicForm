@@ -4,7 +4,7 @@ const Menu = ({ menu, handleMenuItemClick }) => {
 
   return (
     <div >
-Choose Form :
+Choose Form : 
             <select name={'Menu'}  onChange={(e) =>{  handleMenuItemClick(e)} }>
             <option key={"Menu"}  >{"Menu"}</option>
                 {menu.map((item, index) => (

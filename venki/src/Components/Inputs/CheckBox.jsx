@@ -2,35 +2,35 @@ import React from 'react'
 
 const CheckBox = ({ jsonData, handleCheckboxChange }) => {
     //item.id,name,item.values
-    const { type, id, name, checked, options, required } = jsonData;
+    const { type, id, name, checked, options, required, disabled } = jsonData;
     let count = 0;
 
     // <label>
     //                     <input
     //                         type={type}
-                           
+
     //                         id={id ? id : type}
     //                         value={item.values ? item.values : null}
     //                         name={item.lable ? item.lable : type}
-                           
+
     //                         onChange={(e) => handleCheckboxChange(e)}
     //                     />
     //                     {item.label ? item.label : "Label"}
     //                 </label>
 
     return (
-        <div>
+        <div className='form-row'>
             <p>{name ? name : "CheckBox" + " :"}</p>
-            {options.map((item,index) => (
-                <div key={item ? item: count + 1}>
+            {options.map((item, index) => (
+                <div key={item?item : count + 1} className='Multiple-Choice'>
                     <label>
                         <input
                             type={type}
-                           
-                            id={id ? id : type}
+
+                            id={id ? id : name}
                             value={item ? item : null}
-                            name={item ? item : type}
-                           
+                            name={name?name:type}
+
                             onChange={(e) => handleCheckboxChange(e)}
                         />
                         {item ? item : "Label"}
